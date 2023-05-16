@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+</head>
+<body>
+    <div class="login-box" style="color: rgb(0, 0, 0);">
+        {% if num_reviews %}
+        <table border='1'>
+          <thead>
+              <th>Total Reviews</th>
+              <th>% Positive Reviews</th>
+              <th>% Negative Reviews</th>
+              <th>% Neutral Reviews</th>
+          </thead>
+          <tr>
+              <td>{{ num_reviews }}</td>
+              <td>{{ percent_positive|round(2) }}%</td>
+              <td>{{ percent_negative|round(2) }}%</td>
+              <td>{{ percent_neutral|round(2) }}%</td>
+          </tr>
+      </table>
+        {% else %}
+        <h2>Sentiment Analysis</h2>
+        <form method="POST" enctype="multipart/form-data">
+          <div class="user-box">
+            <input type="file" name="file" accept=".csv">
+          </div>
+          <input type="submit" id="submit">
+        </form>
+        {% endif %}
+      </div>
+</body>
+</html>
